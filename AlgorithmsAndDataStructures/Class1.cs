@@ -6,6 +6,57 @@ using System.Threading.Tasks;
 
 namespace AlgorithmsAndDataStructures
 {
+    public class Node<T>
+    {
+        public T Value { get; }
+
+        public Node(T value)
+        {
+            Value = value;
+        }
+
+        public Node<T> Parent { get; set; }
+
+        public Node<T> Left { get; set; }
+
+        public Node<T> Right { get; set; }
+    }
+
+    public class BinaryTreeBuilder
+    {
+        public Node<int> Build(int[] array)
+        {
+            var head = new Node<int>(array[0]);
+
+            for (int i = 1; i < array.Length; i++)
+            {
+                Build(head, array[i]);
+            }
+
+            return head;
+        }
+
+        private void Build(Node<int> head, int next)
+        {
+            var current = head;
+            var parent = head;
+
+            while (current != null)
+            {
+                parent = current;
+
+                if (next >= current.Value)
+                    current = current.Right;
+
+                current = current.Left;
+            }
+
+            if (next >= parent.Value)
+                parent.Right = new Node<int>(next);
+            else
+                parent.Left = new Node<int>(next);            
+        }
+    }
     public class BubbleSort
     {
         public void Sort(int[] input)

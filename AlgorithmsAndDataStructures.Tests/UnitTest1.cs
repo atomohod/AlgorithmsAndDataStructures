@@ -7,6 +7,41 @@ namespace AlgorithmsAndDataStructures.Tests
     public class UnitTest1
     {
         [TestMethod]
+        public void BinaryTreeBuilding()
+        {
+            //arrange
+
+            BinaryTreeBuilder builder = new BinaryTreeBuilder();
+            var array = new[] { 8,1,4,9,9,6,3,8,1 };
+            
+            //act
+
+            var result = builder.Build(array);
+
+            //assert
+
+            Assert.AreEqual(result.Value, 8);
+
+            Assert.AreEqual(result.Left.Value, 1);
+
+            Assert.AreEqual(result.Right.Value, 9);
+
+            Assert.AreEqual(result.Left.Right.Value, 4);
+
+            Assert.AreEqual(result.Left.Right.Left.Value, 3);
+
+            Assert.AreEqual(result.Left.Right.Left.Left.Value, 1);
+
+            Assert.AreEqual(result.Left.Right.Right.Value, 6);
+
+            Assert.AreEqual(result.Right.Value, 9);
+
+            Assert.AreEqual(result.Right.Right.Value, 9);
+
+            Assert.AreEqual(result.Right.Left.Value, 8);
+        }
+
+        [TestMethod]
         public void BubbleSort()
         {
             //arrange
