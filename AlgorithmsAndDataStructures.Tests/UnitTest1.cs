@@ -12,8 +12,8 @@ namespace AlgorithmsAndDataStructures.Tests
             //arrange
 
             BinaryTreeBuilder builder = new BinaryTreeBuilder();
-            var array = new[] { 8,1,4,9,9,6,3,8,1 };
-            
+            var array = new[] { 8, 1, 4, 9, 9, 6, 3, 8, 1 };
+
             //act
 
             var result = builder.Build(array);
@@ -63,8 +63,8 @@ namespace AlgorithmsAndDataStructures.Tests
             Assert.IsTrue(IsGrowing(t3));
             Assert.IsTrue(IsGrowing(t4));
 
-            Assert.IsTrue(AreEqual(t1, new[] {3, 4, 6, 8}));
-            Assert.IsTrue(AreEqual(t2, new[] {0, 0, 1, 2, 2, 2, 2, 3, 4, 4, 5, 6, 6, 7, 8, 9, 9, 9}));
+            Assert.IsTrue(AreEqual(t1, new[] { 3, 4, 6, 8 }));
+            Assert.IsTrue(AreEqual(t2, new[] { 0, 0, 1, 2, 2, 2, 2, 3, 4, 4, 5, 6, 6, 7, 8, 9, 9, 9 }));
         }
 
         private bool IsGrowing(int[] t)

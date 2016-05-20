@@ -45,10 +45,7 @@ namespace AlgorithmsAndDataStructures
             {
                 parent = current;
 
-                if (next >= current.Value)
-                    current = current.Right;
-
-                current = current.Left;
+                current = next >= current.Value ? current.Right : current.Left;
             }
 
             if (next >= parent.Value)
