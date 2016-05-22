@@ -17,6 +17,8 @@ namespace AlgorithmsAndDataStructures.Tests
             //act
 
             var result = builder.Build(array);
+            
+            var isBinary = result.IsThisBinarySearchTree;
 
             //assert
 

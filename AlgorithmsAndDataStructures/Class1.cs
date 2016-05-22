@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AlgorithmsAndDataStructures
 {
-    public class Node<T>
+    public class Node<T> where T : IComparable<T>
     {
         public T Value { get; }
 
@@ -20,6 +20,16 @@ namespace AlgorithmsAndDataStructures
         public Node<T> Left { get; set; }
 
         public Node<T> Right { get; set; }
+
+        public bool IsThisBinarySearchTree => IsBinarySearchTree(this);
+
+        public bool IsBinarySearchTree(Node<T> node)
+        {
+            if ((node?.Left == null || (node.Left.Value.CompareTo(this.Value) == -1 && node.Left.IsThisBinarySearchTree)) && (node?.Right == null || (node.Right.Value.CompareTo(this.Value) != -1  && node.Right.IsThisBinarySearchTree)))
+                return true;
+
+            return false;
+        }
     }
 
     public class BinaryTreeBuilder
@@ -62,7 +72,7 @@ namespace AlgorithmsAndDataStructures
             {
                 for (int j = i; j < input.Length; j++)
                 {
-                    if (input[i] > input[j])
+                    if (input[i].CompareTo(input[j]) != -1)
                     {
                         var t = input[i];
                         input[i] = input[j];
